@@ -264,7 +264,7 @@ end
 if N*m<100000
     %Test if Ax=b is feasible at all
     %turn off the rank deficient warning for now
-    warning off all
+    % warning off all
     y=[A;b']\[zeros(N,1);1];
     if abs(y'*b-1) < 1e-10 && norm(A*y) < 1e-10
         %Infeasibility certificate found
