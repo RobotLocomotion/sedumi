@@ -26,7 +26,7 @@ BUILD_TYPE="Release"
 endif
 
 ifeq ($(wildcard .mexext),)
-	DUMMY:=$(shell matlab -nojvm -nosplash -r "ptr=fopen('.mexext','w'); fprintf(ptr,'%s',mexext); fclose(ptr); exit")
+	DUMMY:=$(shell matlab -nodesktop -nosplash -r "ptr=fopen('.mexext','w'); fprintf(ptr,'%s',mexext); fclose(ptr); exit")
 endif
 MEXEXT := $(shell cat .mexext)
 
@@ -34,7 +34,7 @@ MEXEXT := $(shell cat .mexext)
 all: $(SEDUMI_DIR)/bwblkslv.$(MEXEXT) $(BUILD_PREFIX)/matlab/addpath_sedumi.m $(BUILD_PREFIX)/matlab/rmpath_sedumi.m
 
 $(SEDUMI_DIR)/bwblkslv.$(MEXEXT) :
-	cd $(SEDUMI_DIR) && matlab -nojvm -nosplash -r "install_sedumi; exit"
+	cd $(SEDUMI_DIR) && matlab -nodesktop -nosplash -r "install_sedumi; exit"
 
 $(BUILD_PREFIX)/matlab/addpath_sedumi.m : 
 #	$(MAKE) configure
