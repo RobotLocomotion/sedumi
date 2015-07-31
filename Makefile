@@ -47,12 +47,6 @@ $(BUILD_PREFIX)/matlab/rmpath_sedumi.m :
 	@mkdir -p $(BUILD_PREFIX)/matlab
 	echo "function rmpath_sedumi()\n\nrmpath(fullfile('$(shell pwd)','$(SEDUMI_DIR)'));\nrmpath(fullfile('$(shell pwd)','$(SEDUMI_DIR)','conversion'));\n" > $(BUILD_PREFIX)/matlab/rmpath_sedumi.m
 
-.PHONY: configure
-configure:
-	@echo "\nBUILD_PREFIX: $(BUILD_PREFIX)\n\n"
-
-	@cd $(SEDUMI_DIR) && ./configure --prefix=$(BUILD_PREFIX) 
-
 clean:
 #	$(MAKE) -C $(SEDUMI_DIR) clean
 	-rm $(BUILD_PREFIX)/matlab/*path_sedumi.m
