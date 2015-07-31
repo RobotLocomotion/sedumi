@@ -33,6 +33,8 @@ MEXEXT := $(shell cat .mexext)
 
 all: $(SEDUMI_DIR)/bwblkslv.$(MEXEXT) $(BUILD_PREFIX)/matlab/addpath_sedumi.m $(BUILD_PREFIX)/matlab/rmpath_sedumi.m
 
+configure:
+
 $(SEDUMI_DIR)/bwblkslv.$(MEXEXT) :
 	cd $(SEDUMI_DIR) && matlab -nodesktop -nosplash -r "install_sedumi; exit"
 
