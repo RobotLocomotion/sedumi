@@ -36,7 +36,7 @@ all: $(SEDUMI_DIR)/bwblkslv.$(MEXEXT) $(BUILD_PREFIX)/matlab/addpath_sedumi.m $(
 configure:
 
 $(SEDUMI_DIR)/bwblkslv.$(MEXEXT) :
-	cd $(SEDUMI_DIR) && matlab -nodesktop -nosplash -r "install_sedumi; exit"
+	cd $(SEDUMI_DIR) && matlab -wait -nosplash -nodesktop -nodisplay -r "install_sedumi; exit"
 
 $(BUILD_PREFIX)/matlab/addpath_sedumi.m : 
 #	$(MAKE) configure
