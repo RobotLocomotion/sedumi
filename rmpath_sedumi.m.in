@@ -1,0 +1,4 @@
+function rmpath_sedumi()
+  sedumi_dir='@CMAKE_CURRENT_SOURCE_DIR@';
+  rmpath(fullfile(sedumi_dir,'sedumi'));
+  rmpath(fullfile(sedumi_dir,'sedumi','conversion'));
