@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.5)
-project(sedumi LANGUAGES C)
+project(sedumi VERSION 1.3 LANGUAGES C)
 
 find_package(Matlab REQUIRED COMPONENTS MAIN_PROGRAM)
 
@@ -108,9 +108,13 @@ set(SEDUMI_MEX_OUTPUTS
 
 set(SEDUMI_INSTALL_LOG "${CMAKE_CURRENT_BINARY_DIR}/install_sedumi.log")
 
+if(WIN32)
+  set(SEDUMI_MATLAB_WAIT -wait)
+endif()
+
 add_custom_command(
   OUTPUT ${SEDUMI_MEX_OUTPUTS}
-  COMMAND "${Matlab_MAIN_PROGRAM}" -logfile "${SEDUMI_INSTALL_LOG}" -nosplash -nodesktop -nodisplay -wait -r "install_sedumi;exit"
+  COMMAND "${Matlab_MAIN_PROGRAM}" -logfile "${SEDUMI_INSTALL_LOG}" -nojvm -nosplash -nodesktop -nodisplay ${SEDUMI_MATLAB_WAIT} -r "install_sedumi,exit"
   DEPENDS ${SEDUMI_MEX_SOURCES}
   WORKING_DIRECTORY "${SEDUMI_MEX_DIR}"
   COMMENT "Installing sedumi...")
