@@ -1,0 +1,4 @@
+[submodule "sedumi"]
+	path = sedumi
+	url = https://github.com/sqlp/sedumi.git
+	ignore = dirty
