@@ -1,10 +1,12 @@
 cmake_minimum_required(VERSION 3.5)
 project(sedumi VERSION 1.32 LANGUAGES C)
 
-find_package(Matlab REQUIRED COMPONENTS MAIN_PROGRAM)
+find_package(Matlab MODULE REQUIRED COMPONENTS MAIN_PROGRAM)
 
 if(WIN32)
   set(SEDUMI_MATLAB_WAIT -wait)
+else()
+  set(SEDUMI_MATLAB_WAIT)
 endif()
 
 add_custom_command(
