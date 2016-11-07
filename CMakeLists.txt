@@ -5,6 +5,8 @@ find_package(Matlab REQUIRED COMPONENTS MAIN_PROGRAM)
 
 if(WIN32)
   set(SEDUMI_MATLAB_WAIT -wait)
+else()
+  set(SEDUMI_MATLAB_WAIT)
 endif()
 
 add_custom_command(
