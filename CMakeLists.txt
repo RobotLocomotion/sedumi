@@ -1,6 +1,7 @@
 cmake_minimum_required(VERSION 3.5)
 project(sedumi VERSION 1.32 LANGUAGES C)
 
+set(MATLAB_ADDITIONAL_VERSIONS "R2017a=9.2" "R2016b=9.1" "R2016a=9.0")
 find_package(Matlab MODULE REQUIRED COMPONENTS MAIN_PROGRAM)
 
 if(WIN32)
